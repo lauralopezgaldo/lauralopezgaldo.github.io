@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Laura López Galdo</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">Laura López Galdo<span>.</span></a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research & Projects</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom: 40px;">
+  <div class="wrap">
+    <span class="hero-tag mono">Research &amp; Projects</span>
+
+    <h1>What I work on</h1>
+    <p class="lede">Here you can find a selection of my research and projects, key publications, and other scientific activities from the past few years.</p>
+    
+  </div>
+  
+</section>
+
+<section>
+  <div class="wrap col">
+    <h2 style="border-bottom: 1px solid var(--line); padding-bottom: 18px;">Selected Research</h2>
+    <p class="lede">
+      I study how neural population dynamics encode and transform internal and external information, using electrophysiology, 
+      signal processing, and machine learning to uncover the low-dimensional representations underlying behavior.</p>
+      
+    <div class="grid-1">
+    <div class="proj">
+    <h3 class="proj-title">Motor cortex multiplexing</h3>
+    <p class="proj-question">How can cortical columns encode multiple variables simultaneously?</p>
+    <div class="proj-main">
+      <div class="proj-img">
+        <img src="img/multiplexing.png" alt="Motor cortex multiplexing" loading="lazy">
+      </div>
+      <div class="proj-text">
+        <p>Using laminar electrodes in motor cortex, we investigated how task variables 
+          are represented across cortical layers. We found that the neural subspaces encoding these variables were spatially distributed, 
+          with contributions from all layers.   
+          These subspaces remained distinct, preserving separate representations, but were not fully orthogonal, allowing them to interact.</p> 
+      </div>
+      </div>
+      <div class="proj-footer">
+        <div class="tags">
+          <span class="tag">dynamical systems</span>
+          <span class="tag">neural subspaces</span>
+          <span class="tag">electrophysiology</span>
+          <span class="tag">non-human primates</span>
+          <span class="tag">cortical columns</span>
+        </div>
+        <a class="repo" href="https://www.biorxiv.org/content/10.1101/2025.11.26.690660v2" target="_blank" rel="noopener">Read the paper</a>
+        <br>      
+        <a class="repo" href="https://github.com/lauralopezgaldo/laminar-dynamics-multiplexing/tree/main" target="_blank" rel="noopener">View code on GitHub →</a>
+      </div>
+    </div>
+
+
+        <div class="proj">
+    <h3 class="proj-title">Laminar oscillatory dynamics</h3>
+    <p class="proj-question">How are beta oscillations organized across cortical layers?</p>
+    <div class="proj-main">
+        <div class="proj-img">
+          <img src="img/beta_laminar2.png" alt="Oscillatory dynamics in cortical columns" loading="lazy">
+        </div>
+      <div class="proj-text">
+        <p>Beta oscillations are predominant in the motor cortex. By analyzing laminar intracortical data, 
+          we found that such oscillatory events span across all layers, rather than being restricted to deep ones.
+          Moreover, events emerging at similar frequencies co-occurred along the column, 
+          pointing towards column-wide generation of beta oscillations rather than multiple localized oscillators.
+        </p> 
+      </div>
+      </div>
+      <div class="proj-footer">
+          <div class="tags">
+            <span class="tag">beta oscillations</span>
+            <span class="tag">signal processing</span>
+            <span class="tag">LFP</span>
+            <span class="tag">motor cortex</span>
+            <span class="tag">cortical layers</span>
+            <span class="tag">NNMF</span>
+          </div>
+        <a class="repo" href="img/Laminar_beta.pdf" target="_blank" rel="noopener"> View the poster</a>
+        <a class="repo" href="https://github.com/lauralopezgaldo/laminar-beta-patterns/tree/main" target="_blank" rel="noopener">View code on GitHub →</a>
+           
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap col">
+    <h2 style="border-bottom: 1px solid var(--line); padding-bottom: 18px;">Selected Projects</h2>
+    <p class="lede">Alongside my research on neural dynamics, I have explored projects across neuroimaging, neurotechnology, 
+      and computational approaches to motor behavior.</p>
+
+    <div class="grid-3">
+
+      <div class="proj">
+        <h3 class="proj-title">Tractography</h3>
+
+        <div class="proj-img">
+          <img src="img/tractography.png" alt="Tractography" loading="lazy">
+        </div>
+
+        <div class="proj-body">
+          <p>Pipeline for tractography analysis in macaque data, combining structural and diffusion MRI.</p>
+          <div class="tags">
+            <span class="tag">MrTrix</span>
+            <span class="tag">macapype</span>
+            <span class="tag">DTI</span>
+            <span class="tag">MRI segmentation</span>
+          </div>
+          <a class="repo" href="https://github.com/lauralopezgaldo/tractography" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="proj">
+        <h3 class="proj-title">Robotics </h3>
+
+        <div class="proj-img">
+          <img src="img/exoskeleton.png" alt="Soft hand exoskeleton" loading="lazy">
+        </div>
+
+        <div class="proj-body">
+          <p>Soft hand exoskeleton actuated with shape-memory materials for rehabilitation.</p>
+          <div class="tags">
+            <span class="tag">exoskeleton</span>
+            <span class="tag">SMA</span>
+            <span class="tag">MATLAB \&amp; Simulink</span>
+            <span class="tag">silicone</span>
+          </div>
+        </div>
+      </div>
+
+            <div class="proj">
+        <h3 class="proj-title">Behavior </h3>
+        <div class="proj-img">
+          <img src="img/behavior.png" alt="Behavior" loading="lazy">
+        </div>
+        <div class="proj-body">
+          <p>Computational modelling of behavior to investigate how context influences reference frames in motor learning.</p>
+          <div class="tags">
+            <span class="tag">motor learning</span>
+            <span class="tag">kinarm</span>
+            <span class="tag">computational modelling</span>
+            <span class="tag">human behavior</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap col">
+    <h2 style="border-bottom: 1px solid var(--line); padding-bottom: 18px;">Science communication</h2>
+    <p class="lede">An important part of doing research is being able to communicate science, 
+      both with peers and with the general public. Below are some examples of my contributions.
+    </p>
+
+    <div class="grid-3">
+
+    <button class="proj gcard" data-gallery="gal-talks">
+      <span class="gcard-name">Presentations at conferences</span>
+      <span class="gcard-count">6 images →</span>
+    </button>
+
+    <button class="proj gcard" data-gallery="gal-outreach">
+      <span class="gcard-name">Outreach</span>
+      <span class="gcard-count">4 images →</span>
+    </button>
+
+    <button class="proj gcard" data-gallery="gal-abstracts">
+      <span class="gcard-name">Graphical abstracts</span>
+      <span class="gcard-count">3 images →</span>
+    </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======== Put everything below right before </body> ======== -->
+
+<!-- Gallery contents (hidden, only read by the script) -->
+<div hidden>
+  <div id="gal-talks">
+    <figure><img data-src="img/conferences/gdr_first_talk.jpg" alt=""><figcaption>GDR NeuralNet · 2023, Marseille</figcaption></figure>
+    <figure><img data-src="img/conferences/sfn.jpg" alt=""><figcaption>SfN · 2023, Washington DC</figcaption></figure>
+    <figure><img data-src="img/conferences/fens.jpg" alt=""><figcaption>FENS · 2024, Vienna</figcaption></figure>
+    <figure><img data-src="img/conferences/gdr_saclay.jpg" alt=""><figcaption>GDR NeuralNet · 2024, Paris</figcaption></figure>
+    <figure><img data-src="img/conferences/thesis_presentation.jpg" alt=""><figcaption>Theis defense · December 2025, Marseille</figcaption></figure>
+    <figure><img data-src="img/conferences/thesis_supervisors.jpg" alt=""><figcaption>With my supervisors at the thesis defense!</figcaption></figure>
+  </div>
+  <div id="gal-outreach">
+    <figure><img data-src="img/outreach/aix-first.jpg" alt=""><figcaption>Talk at IBS of Provence - 2023</figcaption></figure>
+    <figure><img data-src="img/outreach/presenters.jpg" alt=""><figcaption>Speakers of 'A journey to the science of the brain'</figcaption></figure>
+    <figure><img data-src="img/outreach/newcastle.jpeg" alt=""><figcaption>Outreach event organized at Newcastle University with the In2PB Consortium</figcaption></figure>
+    <figure><img data-src="img/outreach/aix-second.jpg" alt=""><figcaption>Talk at IBS of Provence - 2024</figcaption></figure>
+  </div>
+  <div id="gal-abstracts">
+    <figure><img data-src="img/graphical_abstracts/GA_MUA.png" alt=""><figcaption>Multiplexed computation in motor cortex</figcaption></figure>
+    <figure><img data-src="img/graphical_abstracts/graphical_abstract_beta.png" alt=""><figcaption>Beta bands in motor cortex</figcaption></figure>
+    <figure><img data-src="img/graphical_abstracts/GA_timescales.png" alt=""><figcaption>Neuronal timescales</figcaption></figure>
+  </div>
+</div>
+
+<!-- The lightbox, one for the whole page -->
+<dialog id="lightbox">
+  <button class="lb-close" aria-label="Close">×</button>
+  <div class="lb-stage">
+    <button class="lb-nav lb-prev" aria-label="Previous">‹</button>
+    <figure>
+      <img id="lb-img" alt="">
+      <figcaption id="lb-cap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" aria-label="Next">›</button>
+  </div>
+  <div class="lb-thumbs" id="lb-thumbs"></div>
+</dialog>
+
+<script>
+  const box    = document.getElementById('lightbox');
+  const img    = document.getElementById('lb-img');
+  const cap    = document.getElementById('lb-cap');
+  const thumbs = document.getElementById('lb-thumbs');
+  let items = [], idx = 0;
+
+  function show(i) {
+    idx = (i + items.length) % items.length;
+    img.src = items[idx].src;
+    img.alt = items[idx].alt;
+    cap.textContent = items[idx].caption;
+    [...thumbs.children].forEach((t, n) => t.classList.toggle('active', n === idx));
+  }
+
+  function openGallery(id) {
+    items = [...document.querySelectorAll('#' + id + ' figure')].map(f => ({
+      src: f.querySelector('img').dataset.src,
+      alt: f.querySelector('img').alt,
+      caption: f.querySelector('figcaption')?.textContent || ''
+    }));
+    thumbs.innerHTML = '';
+    items.forEach((it, n) => {
+      const t = document.createElement('img');
+      t.src = it.src;
+      t.alt = '';
+      t.addEventListener('click', () => show(n));
+      thumbs.appendChild(t);
+    });
+    show(0);
+    box.showModal();
+  }
+
+  document.querySelectorAll('.gcard').forEach(c =>
+    c.addEventListener('click', () => openGallery(c.dataset.gallery)));
+
+  box.querySelector('.lb-prev').addEventListener('click', () => show(idx - 1));
+  box.querySelector('.lb-next').addEventListener('click', () => show(idx + 1));
+  box.querySelector('.lb-close').addEventListener('click', () => box.close());
+
+  // click on the dark backdrop closes it
+  box.addEventListener('click', e => { if (e.target === box) box.close(); });
+
+  // arrow keys (Esc already closes a <dialog>)
+  document.addEventListener('keydown', e => {
+    if (!box.open) return;
+    if (e.key === 'ArrowLeft')  show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+</script>
+</body>
+</html>
+
+
+<!-- ======== Publications ======== -->
+
+<section>
+  <div class="wrap col">
+    <h2 id="publications">Publications</h2>
+    
+    <div class="entry">
+      <div class="when mono">2025</div>
+      <div>
+        <h3>Coordinated multilaminar dynamics underlie multiplexed computation in macaque motor cortex</h3>
+        <p>López-Galdo, L., Nougaret, S., Battaglia, D., &amp; Kilavik, B. E. <em>Under review at Nature Communications.</em></p>
+        <div class="tags">
+          <span class="tag"><a href="https://doi.org/10.1101/2025.11.26.690660" target="_blank" rel="noopener">Preprint DOI</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when mono">2026</div>
+      <div>
+        <h3>The layer illusion of motor cortical beta rhythms</h3>
+        <p>López-Galdo, L., Nougaret, S., Battaglia, D., &amp; Kilavik, B. E. <em>In prep.</em></p>
+      </div>
+    </div>
+
+        <div class="entry">
+      <div class="when mono">2024</div>
+      <div>
+        <h3>Low and high beta rhythms have different motor cortical sources and distinct roles in movement control and spatiotemporal attention</h3>
+        <p>Nougaret, S., López-Galdo, L., ..., &amp; Kilavik, B. E. <em>PLOS Biology.</em></p>
+        <div class="tags">
+          <span class="tag"><a href="https://doi.org/10.1371/journal.pbio.3002670" target="_blank" rel="noopener">DOI</a></span>
+        </div>
+      </div>
+    </div>
+
+        <div class="entry">
+      <div class="when mono">2026</div>
+      <div>
+        <h3>Area- and Layer-Specific Organization of Multimodal Timescales in Macaque Motor Cortex</h3>
+        <p>Nandi, N., López-Galdo, L., Nougaret, S., &amp; Kilavik, B. E. <em>bioRxiv.</em></p>
+        <div class="tags">
+          <span class="tag"><a href="https://doi.org/10.64898/2026.03.21.713374" target="_blank" rel="noopener">Preprint DOI</a></span>
+        </div>
+      </div>
+    </div>
+
+      <div class="entry">
+      <div class="when mono">2025</div>
+      <div>
+        <h3>Laminar dynamics in the macaque motor cortex</h3>
+        <p>López-Galdo, L. PhD thesis, Aix-Marseille Université. <em>Theses.fr.</em></p>
+        <div class="tags">
+          <span class="tag"><a href="https://theses.fr/s381148" target="_blank" rel="noopener">Read thesis</a></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="mailto:lauralg_burela@hotmail.es">Email</a>
+      <a href="https://github.com/lauralopezgaldo" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/laura-lopez-galdo" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="research.html#publications">Publications</a>
+    </div>
+    <p class="footer-note">© <span id="year"></span> Laura López Galdo. Built with GitHub Pages.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

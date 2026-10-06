@@ -1,0 +1,1026 @@
+/* ============================================================
+   Design tokens
+   ============================================================ */
+
+:root {
+  --bg: #F8E6C7;
+  --surface: #FFFFFF;
+  --ink: #153243;
+  --ink-soft: #3F5E71;
+  --ink-faint: #6C8CA0;
+  --line: #EABA6B;
+  /*--line: #ACCBE1;*/
+  --grid: #E7E2D6;
+  --accent: #EABA6B;
+  --accent-ink: #97672B;
+  --data: #946E83;
+  --max: 760px;
+  --new_max: 850px;
+  --wide: 1080px;
+  --font-display: 'Space Grotesk', 'IBM Plex Sans', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+}
+
+
+/* ============================================================
+   Base
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ============================================================
+   Typography
+   ============================================================ */
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--ink);
+}
+
+.lede {
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+
+/* ============================================================
+   Layout shells
+   ============================================================ */
+
+.wrap {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.col {
+  max-width: var(--new_max);
+}
+
+section {
+  padding: 72px 0 0;
+}
+
+
+.hero::after {
+  content: "";
+  display: block;
+  max-width: var(--wide);
+  margin: 72px auto 0;
+}
+
+section::after{
+  content: "";
+  display: block;
+  max-width: var(--wide);
+  margin: 20px auto 0;
+}
+
+section:last-of-type::after {
+  display: none;
+}
+
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+
+header.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(248, 230, 199, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid var(--line);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-links a:hover {
+  color: var(--ink);
+}
+
+.nav-links a.active {
+  color: var(--ink);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  margin: 5px 0;
+}
+
+@media (max-width: 720px) {
+
+  .nav-links {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    gap: 0;
+
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: max-height 0.25s ease;
+  }
+
+  .nav-links.open {
+    max-height: 320px;
+  }
+
+  .nav-links a {
+    padding: 14px 32px;
+    border-bottom: 1px solid var(--line);
+    width: 100%;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+
+/* ============================================================
+   Hero
+   ============================================================ */
+
+.hero {
+  padding: 88px 0 0;
+
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(248, 230, 199, 0.9) 0%,
+      rgba(248, 230, 199, 0.8) 25%,
+      rgba(248, 230, 199, 0.65) 50%,
+      rgba(248, 230, 199, 0.45) 72%,
+      rgba(248, 230, 199, 0.35) 100%
+    ),
+    url('img/portada.png');
+
+  background-size: cover;
+  background-position: center 0%;
+  background-repeat: no-repeat;
+}
+
+.hero-tag {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  color: var(--data);
+  margin-top: 4px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 20px;
+
+  border-radius: 3px;
+  text-decoration: none;
+
+  font-size: 0.92rem;
+  font-weight: 500;
+
+  border: 1px solid var(--ink);
+
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+
+/* ============================================================
+   Cards / lists
+   ============================================================ */
+
+.entry {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+
+.entry:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.entry .when {
+  font-family: var(--font-mono);
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  padding-top: 3px;
+}
+
+.entry h3 {
+  margin-bottom: 6px;
+}
+
+.entry .tags {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+  .entry {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+.entry.no-line {
+  border-top: none;
+  padding: 14px 0;
+}
+
+.entry.no-line:last-child {
+  border-bottom: none;
+}
+
+.entry.no-line .when {
+  font-size: 1.3rem;
+  padding-top: 0;
+}
+
+
+/* ============================================================
+   Icons
+   ============================================================ */
+
+.icon {
+  width: 26px;
+  height: 26px;
+  color: var(--ink);
+  display: block;
+}
+
+
+/* ============================================================
+   Contact
+   ============================================================ */
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 32px;
+  max-width: 77%;
+  margin-left: 5%;
+  margin-bottom: 12%;
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  gap: 16px;
+
+  border: 1px solid var(--line);
+  border-radius: 8px;
+
+  padding: 12px 24px;
+  margin-bottom: 0;
+
+  background: var(--surface);
+
+  transition: border-color 0.15s ease;
+}
+
+.contact-location {
+  margin-top: 16px;
+  color: var(--data);
+  font-size: 0.84rem;
+}
+
+.contact-card:last-child {
+  margin-bottom: 0;
+}
+
+.contact-card:hover {
+  border-color: var(--accent);
+}
+
+.contact-card .icon {
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+}
+
+.contact-card a {
+  text-decoration: none;
+  color: var(--accent-ink);
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+.contact-card > div:last-child {
+  color: var(--accent-ink);
+}
+
+@media (max-width: 720px) {
+
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    grid-template-columns: 48px 1fr;
+  }
+
+}
+
+
+/* card is now a vertical stack of three rows */
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 54px;          /* vertical space between cards */
+}
+
+.grid-1 .proj {
+  flex-direction: column;
+}
+
+/* Row 1: question, full width */
+.proj-question {
+  margin: 0;
+  padding: 25px 25px 0;          /* top padding clears the title on the border */
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Row 2: image + text side by side */
+.proj-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 32px;
+}
+
+.grid-1 .proj-img {
+  flex: 0 0 40%;                 /* image share of the row */
+  aspect-ratio: 4/3;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.proj-text {
+  flex: 1;
+  text-align: justify;
+  font-size: 16px;
+}
+
+.proj-text p:first-child { margin-top: 0; }
+.proj-text p:last-child  { margin-bottom: 0; }
+
+/* flipped cards: image on the right */
+.grid-1 .proj:nth-child(even) .proj-main {
+  flex-direction: row-reverse;
+}
+
+/* Row 3: tags + link, full width */
+.proj-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  padding: 20px 32px 28px;
+  /* border-top: 1px solid var(--line);   /* optional separator, delete if you don't want it */
+}
+
+.proj-footer .tags { margin: 0; }
+.proj-footer a.repo { margin: 0; white-space: nowrap; }
+
+/* small screens: stack image above text */
+@media (max-width: 800px) {
+  .proj-main,
+  .grid-1 .proj:nth-child(even) .proj-main {
+    flex-direction: column;
+  }
+  .grid-1 .proj-img { flex: none; width: 100%; }
+}
+
+/* ============================================================
+   Two-column grids
+   ============================================================ */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 720px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   Project cards
+   ============================================================ */
+
+.proj {
+  border: 1px solid var(--line);
+  padding: 28px;
+  border-radius: 3px;
+  background: var(--surface);
+}
+
+.proj a.repo {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent-ink);
+  text-decoration: none;
+}
+
+.proj a.repo:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+footer {
+  padding: 48px 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: var(--accent-ink);
+}
+
+.footer-note {
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+  margin-top: 24px;
+}
+
+
+/* ============================================================
+   Selection
+   ============================================================ */
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+
+/* ============================================================
+   Accent badge
+   ============================================================ */
+
+code {
+  font-family: var(--font-mono);
+  background-color: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+
+/* ============================================================
+   Homepage profile layout
+   ============================================================ */
+
+.profile-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 40px;
+}
+
+.profile-text {
+  flex: 1;
+}
+
+
+/* ============================================================
+   Photo
+   ============================================================ */
+
+.profile-side {
+  position: relative;
+  width: 275px;
+  flex-shrink: 0;
+}
+
+.profile-photo {
+  width: 275px;
+  height: auto;
+  transform: translateY(-75px);
+
+  border-radius: 0;
+  border: none;
+
+  filter:
+    drop-shadow(1px 0 0 #EABA6B)
+    drop-shadow(-1px 0 0 #EABA6B)
+    drop-shadow(0 1px 0 #EABA6B)
+    drop-shadow(0 -1px 0 #EABA6B)
+    drop-shadow(2px 2px 0 #EABA6B)
+    drop-shadow(-2px -2px 0 #EABA6B)
+    drop-shadow(4px 6px 10px rgba(21, 50, 67, 0.15));
+
+  transition: transform 0.2s ease;
+}
+
+.profile-photo:hover {
+  transform: translateY(-75px) rotate(-3deg) scale(1.15);
+}
+
+/* ============================================================
+   Statistics below photo
+   ============================================================ */
+
+.hero-stats {
+  position: absolute;
+
+  top: calc(100% + 68px);
+  left: 0;
+
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  padding: 12px 12px;
+  background: #eab96b46;
+  border-top: 1.5px solid var(--line);
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat b {
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-size: 1.35rem;
+  line-height: 0.8;
+  display: block;
+  margin-bottom: 7px;
+}
+
+.hero-stat span {
+  color: var(--ink);
+  font-family: var(--ink-soft);
+  font-size: 0.95rem;
+  font-weight: 450;
+  line-height: 1.1;
+  display: block;
+}
+
+
+/* ============================================================
+   Academic journey graphic
+   ============================================================ */
+
+.academic-path {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 35px 0 12px;
+}
+
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  .profile-layout {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .profile-side {
+    width: 160px;
+    margin: 0 auto;
+  }
+
+  .profile-photo {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-stats {
+    width: 275px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    top: calc(100% + 25px);
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .academic-path {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ============================================================
+   Three-column grid
+   ============================================================ */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   Project cards with image (title on the border)
+   ============================================================ */
+
+.proj {
+  position: relative;
+  /*border: 2px solid var(--accent, var(--line));   /* yellow border from your mockup */
+  border: 2px solid var(--accent);
+  border-radius: 28px;
+  background: #f9f5ee;;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;                            /* room for the title that sticks out */
+  /* NOTE: no overflow:hidden here, it would clip the title */
+}
+
+/* Title sits centered on the top border, cutting the line */
+.proj-title {
+  position: absolute;
+  top: 0;
+  left: 32px;                 /* was: left: 50% */
+  transform: translateY(-50%);/* was: translate(-50%, -50%) */
+  text-align: left;
+  max-width: calc(100% - 64px);  z-index: 3;
+  margin: 0;
+  padding: 0 10px;
+  background: var(--accent);  
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 16pt;
+  font-weight: 200;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Image fills the top of the card, flush with the border */
+.proj-img {
+  position: relative;
+  aspect-ratio: 4/3;
+  width: 100%;
+  /*background: #F8E6C7;                         /* the blue placeholder from your mockup */
+  overflow: hidden;
+  align-content: center;
+  border-radius: 25px 25px 0 0;                /* card radius minus border width */
+  padding: 24px 28px 12px;    /* top, left/right, bottom */
+  box-sizing: border-box;
+}
+
+.proj-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;                           /* use "contain" if you don't want cropping */
+  transition: transform 0.3s ease;
+}
+
+.proj:hover .proj-img img {
+  transform: scale(1.04);
+}
+
+/* Text area below the image */
+.proj-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-size: 15px;
+}
+
+.proj-body .tags {
+  margin-bottom: 14px;
+}
+
+.proj-body a.repo {
+  margin-top: auto;
+  word-break: break-all;
+}
+
+
+/* Clickable category card (builds on .proj and .proj-title) */
+/* Clickable category card: text only */
+.gcard {
+  font: inherit;
+  color: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+   background: #f9f5ee;
+  margin-top: 0;                      /* no title sticking out, so no extra top space */
+  min-height: 180px;
+  padding: 32px 24px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.gcard:hover,
+.gcard:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  background: var(--bg);              /* subtle tint on hover, delete if you don't want it */
+}
+
+.gcard-name {
+  font-family: var(--font-body);
+  font-size: 18pt;
+  font-weight: 500;
+  line-height: 1.2;
+  /* color: var(--accent, #f5b800); */
+  color: var(--ink, #f5b800);
+}
+
+.gcard-count {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.95rem;
+  color: inherit;
+  opacity: 0.8;
+}
+
+/* Lightbox */
+#lightbox {
+  width: min(1000px, 92vw);
+  max-height: 92vh;
+  padding: 24px;
+  border: 3px solid var(--accent, #f5b800);
+  border-radius: 28px;
+  background: var(--surface, #fff);
+  color: inherit;
+}
+#lightbox::backdrop { background: rgba(0, 0, 0, 0.6); }
+
+.lb-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 28px;
+  line-height: 1;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+.lb-stage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lb-stage figure { flex: 1; margin: 0; text-align: center; }
+.lb-stage img {
+  max-width: 100%;
+  max-height: 62vh;
+  object-fit: contain;
+}
+.lb-stage figcaption { margin-top: 10px; }
+
+.lb-nav {
+  font-size: 40px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--accent, #f5b800);
+}
+
+.lb-thumbs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.lb-thumbs img {
+  width: 64px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.5;
+  border: 2px solid transparent;
+}
+.lb-thumbs img.active {
+  opacity: 1;
+  border-color: var(--accent, #f5b800);
+}
